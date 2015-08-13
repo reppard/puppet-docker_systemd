@@ -1,0 +1,17 @@
+{
+  "name": "ajsmith-docker",
+  "version": "0.1.0",
+  "author": "Alex Smith <alex.smith@redhat.com>",
+  "summary": "Configure Docker container services.",
+  "license": "GPL-2",
+  "source": "https://github.com/ajsmith/puppet-docker.git",
+  "project_page": "https://github.com/ajsmith/puppet-docker",
+  "issues_url": "https://github.com/ajsmith/puppet-docker/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.5.1"
+    }
+  ]
+}
+
