@@ -1,13 +1,13 @@
-# docker
+# docker_systemd
 
 #### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with docker](#setup)
-    * [What docker affects](#what-docker-affects)
+3. [Setup - The basics of getting started with docker_systemd](#setup)
+    * [What docker affects](#what-docker_systemd-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with docker](#beginning-with-docker)
+    * [Beginning with docker_systemd](#beginning-with-docker_systemd)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -25,7 +25,7 @@ as data volume containers.
 
 ## Setup
 
-### What docker affects
+### What docker_systemd affects
 
 TODO
 
@@ -41,7 +41,7 @@ TODO
 If your module requires anything extra before setting up (pluginsync enabled,
 etc.), mention it here.
 
-### Beginning with docker
+### Beginning with docker_systemd
 
 TODO
 

@@ -1,12 +1,12 @@
 {
-  "name": "ajsmith-docker",
+  "name": "ajsmith-docker_systemd",
   "version": "0.1.0",
   "author": "Alex Smith <alex.smith@redhat.com>",
-  "summary": "Configure Docker container services.",
+  "summary": "Configure Docker container services with systemd.",
   "license": "GPL-2",
-  "source": "https://github.com/ajsmith/puppet-docker.git",
-  "project_page": "https://github.com/ajsmith/puppet-docker",
-  "issues_url": "https://github.com/ajsmith/puppet-docker/issues",
+  "source": "https://github.com/ajsmith/puppet-docker_systemd.git",
+  "project_page": "https://github.com/ajsmith/puppet-docker_systemd",
+  "issues_url": "https://github.com/ajsmith/puppet-docker_systemd/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
@@ -14,4 +14,3 @@
     }
   ]
 }
-

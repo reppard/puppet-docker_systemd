@@ -1,6 +1,6 @@
-# == Class: docker
+# == Class: docker_systemd
 #
-# Configure Docker container services.
+# Configure Docker container services in systemd.
 #
 # === Parameters
 #
@@ -23,10 +23,10 @@
 #
 # === Examples
 #
-#  class { docker:
+#  class { docker_systemd:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
-class docker {
+class docker_systemd {
 
 
 }
