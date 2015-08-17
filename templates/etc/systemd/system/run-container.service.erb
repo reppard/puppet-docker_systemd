@@ -1,0 +1,16 @@
+[Unit]
+Description=Docker Container Service for <%= @title %>
+Requires=docker.service
+After=docker.service<% if @depends %><% @depends.each do |dep| %><%= " docker-#{dep}.service" %><% end %><% end %>
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/docker run --rm \
+    <% if @volumes_from  %><% @volumes_from.each do |container| %><%= " --volumes-from #{container}" %><% end %><% end %> \
+    --name <%= @title %> \
+    <%= @image %> <%= @command %>
+ExecStop=/usr/bin/docker stop <%= @title %>
+
+[Install]
+WantedBy=multi-user.target
