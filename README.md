@@ -69,11 +69,11 @@ with things. (We are working on automating this section!)
 
 ## Limitations
 
-This module targets Red Hat Linux systems which use systemd:
+This module targets Red Hat Linux systems capable of running Docker:
 
 * RHEL 7+
 * CentOS 7+
-* Fedora
+* Fedora 20+
 
 ## Development
 
