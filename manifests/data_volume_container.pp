@@ -1,4 +1,4 @@
-define docker_systemd::volume_container (
+define docker_systemd::data_volume_container (
   $image        = undef,
   $command      = undef,
   $depends      = undef,
