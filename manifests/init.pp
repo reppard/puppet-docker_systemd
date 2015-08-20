@@ -26,7 +26,5 @@
 #  class { docker_systemd:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
-class docker_systemd {
 
-
-}
+class docker_systemd {}
