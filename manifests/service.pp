@@ -10,7 +10,7 @@ define docker_systemd::service (
 
   $service_name = "docker-${title}.service"
   $docker_run_options = build_docker_run_options({
-    link => $link
+    link => $link,
     name => $title,
     publish => $publish,
     volumes_from => $volumes_from,
