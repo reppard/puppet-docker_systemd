@@ -27,7 +27,6 @@ module Puppet::Parser::Functions
     :type => :rvalue,
     :doc => "Build command line options for docker-run."
   ) do |args|
-    puts args
     args = args[0] || {}
     args.reject { |k, v|
       v.nil? || v == :undef || v.empty?
