@@ -1,4 +1,4 @@
-define docker_systemd::service (
+define docker_systemd::container (
   $image        = undef,
   $command      = undef,
   $depends      = undef,
