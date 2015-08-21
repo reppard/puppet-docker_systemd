@@ -1,4 +1,6 @@
 define docker_systemd::container (
+  $ensure       = running,
+  $enable       = true,
   $image        = undef,
   $command      = undef,
   $depends      = undef,
@@ -22,8 +24,8 @@ define docker_systemd::container (
 
   ~>
   service { $service_name:
-    ensure   => running,
-    enable   => true,
+    ensure   => $ensure,
+    enable   => $enable,
     provider => systemd,
   }
 
