@@ -6,6 +6,8 @@ After=docker.service<% if @depends %><% @depends.each do |dep| %><%= " docker-#{
 [Service]
 Type=simple
 Restart=always
+ExecStartPre=-/usr/bin/docker stop <%= @title %>
+ExecStartPre=-/usr/bin/docker rm <%= @title %>
 ExecStart=/usr/bin/docker run --rm \
     <%= @docker_run_options %> \
     <%= @image %> <%= @command %>
