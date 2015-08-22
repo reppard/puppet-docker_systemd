@@ -1,5 +1,10 @@
-# Configure a oneshot service to exec a command from an existing container.
-
+# Configure a service to exec a command on an existing container.
+#
+# The reason to use this rather than a normal exec is to ensure this fires
+# only after the container it needs has been created.
+#
+# Note that docker_systemd::exec will fire everytime systemd starts services.
+#
 define docker_systemd::exec (
   $command,
   $container = $title,
