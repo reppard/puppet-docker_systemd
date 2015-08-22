@@ -9,6 +9,7 @@ define docker_systemd::data_volume_container (
     })
 
   file { "/etc/systemd/system/${service_name}":
+    ensure  => present,
     content => template('docker_systemd/etc/systemd/system/data-container.service.erb'),
   }
 

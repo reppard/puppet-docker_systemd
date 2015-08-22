@@ -14,6 +14,7 @@ define docker_systemd::exec (
   $depends = "docker-${container}.service"
 
   file { "/etc/systemd/system/${service_name}":
+    ensure  => present,
     content => template('docker_systemd/etc/systemd/system/exec-container.service.erb'),
   }
 
