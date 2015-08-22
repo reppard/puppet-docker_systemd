@@ -1,11 +1,12 @@
 [Unit]
-Description=Docker Exec Container for <%= @title %>
+Description=Docker Exec for <%= @title %>
 Requires=docker.service
 After=docker.service <%= depends %>
 
 [Service]
 Type=oneshot
 Restart=no
+RemainAfterExit=yes
 ExecStart=/usr/bin/docker exec -i <%= @container %> <%= @command %>
 
 [Install]
