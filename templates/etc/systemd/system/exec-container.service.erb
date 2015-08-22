@@ -1,7 +1,7 @@
 [Unit]
 Description=Docker Exec for <%= @title %>
 Requires=docker.service
-After=docker.service <%= depends %>
+After=docker.service <%= @depends %>
 
 [Service]
 Type=oneshot
