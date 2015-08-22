@@ -1,11 +1,12 @@
 [Unit]
 Description=Docker Container Service for <%= @title %>
-Requires=docker.service
+Requires=docker.service<% if @depends %><% @depends.each do |dep| %><%= " docker-#{dep}.service" %><% end %><% end %>
 After=docker.service<% if @depends %><% @depends.each do |dep| %><%= " docker-#{dep}.service" %><% end %><% end %>
 
 [Service]
 Type=simple
 Restart=always
+RestartSec=5
 ExecStartPre=-/usr/bin/docker stop <%= @title %>
 ExecStartPre=-/usr/bin/docker rm <%= @title %>
 ExecStart=/usr/bin/docker run --rm \
