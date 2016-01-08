@@ -2,7 +2,7 @@
   "name": "ajsmith-docker_systemd",
   "version": "0.1.1",
   "author": "Alex Smith <alex.smith@redhat.com>",
-  "summary": "Configure Docker container services with systemd.",
+  "summary": "Configure systemd services to run Docker containers.",
   "license": "GPL-2",
   "source": "https://github.com/ajsmith/puppet-docker_systemd.git",
   "project_page": "https://github.com/ajsmith/puppet-docker_systemd",

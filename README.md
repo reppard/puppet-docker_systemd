@@ -16,16 +16,16 @@
 
 ## Overview
 
-This module configures Docker containers on Red Hat systems which use systemd.
+This module creates systemd services to run Docker containers.
 
 ## Module Description
 
 This module provides comprehensive systemd service configuration to manage the
-running of Docker containers, and it supports more sophisticated usage
-patterns, such as data volume containers. An important feature it provides is
-it can configure systemd dependencies so that Docker containers are started in
-the correct order, which is needed for sharing volumes or establishing links
-between containers.
+running of Docker containers. An important feature it provides is it can
+configure systemd dependencies so that Docker containers are started in the
+correct order, which is needed for sharing volumes or establishing links
+between containers. This is needed to support more sophisticated usage
+patterns, such as data volume containers.
 
 ## Setup
 
