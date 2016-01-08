@@ -1,6 +1,6 @@
 {
   "name": "ajsmith-docker_systemd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Alex Smith <alex.smith@redhat.com>",
   "summary": "Configure Docker container services with systemd.",
   "license": "GPL-2",
