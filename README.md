@@ -157,6 +157,11 @@ Issues and pull requests are welcome! Send those to:
 
 ## Release Notes
 
+### v0.2.0
+
+- Fixed a bug that prevented a container image from being configured.
+- Added rspec tests for defined resource types.
+
 ### v0.1.3
 
 - OS support info fixes.
