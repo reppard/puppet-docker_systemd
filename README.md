@@ -20,11 +20,12 @@ This module configures Docker containers on Red Hat systems which use systemd.
 
 ## Module Description
 
-This module provides more comprehensive systemd service configuration in order
-to support container dependencies and more sophisticated usage patterns, such
-as data volume containers. It also configures systemd service dependencies, so
-that Docker containers can be started in the correct order, which is pretty
-important for linking containers and sharing volumes.
+This module provides comprehensive systemd service configuration to manage the
+running of Docker containers, and it supports more sophisticated usage
+patterns, such as data volume containers. An important feature it provides is
+it can configure systemd dependencies so that Docker containers are started in
+the correct order, which is needed for sharing volumes or establishing links
+between containers.
 
 ## Setup
 
@@ -39,11 +40,11 @@ be stored using Docker's storage driver.
 If any Docker images are pulled as a result of running a Docker container,
 those images will be stored using Docker's storage driver.
 
-This module **does not** install and Docker for you. There are plenty of ways
-to do that already.
+This module **does not** install and Docker for you. Plenty of ways to install
+Docker already exist, so this module does not add yet another way to do it.
 
 This module **does not** build Docker images. If you need to build images, the
-`puppetlabs/docker_platform` module does that just fine (mostly).
+`puppetlabs/docker_platform` module does that just fine.
 
 ### Setup Requirements
 
@@ -59,12 +60,16 @@ under systemd.
 
 ```.puppet
 docker_systemd::container { "httpd":
-  image => "httpd"
+  image   => "httpd",
+  publish => "80:80/tcp",
 }
 ```
 
-By default, this configuration enables and starts the container service. The
-systemd service is named `docker-httpd`.
+In the above example, a systemd service is configured to run the httpd
+container, and it publishes port 80 when it runs. The container starts
+immediately and is configured to start on boot.  The container name is based on
+the title and is named "httpd". The systemd service is also based on the title
+and is named "docker-httpd.service".
 
 The following options are available for `docker_systemd::container`:
 
@@ -89,10 +94,11 @@ The following options are available for `docker_systemd::container`:
 
   * entrypoint: Run this container with a different entrypoint.
 
-
 ### docker_systemd::exec
 
-`docker_systemd::exec` allows a `docker exec` command to be invoked within a `docker_systemd::container`.
+`docker_systemd::exec` allows a `docker exec` command to be invoked within a
+`docker_systemd::container`.  No additional containers are created for an
+`exec` service, and it depends on the container which it runs against.
 
 ```.puppet
 docker_systemd::exec { "httpd":
@@ -101,8 +107,14 @@ docker_systemd::exec { "httpd":
 ```
 
 The above example configures `/bin/ls` to be run from within the container of
-the `docker-httpd` service. The docker service for this is named
-`docker-httpd-exec`.
+the "docker-httpd" service. The systemd service for this is named
+"docker-httpd-exec.service" and it depends on "docker-httpd.service".
+
+The following options are available for `docker_systemd::exec`:
+
+  * command: Command and arguments to be run by the container.
+
+  * container: Identifier of the container if different than the title.
 
 ### docker_systemd::data_volume_container
 
@@ -117,8 +129,14 @@ docker_systemd::data_volume_container { "httpd-data":
 }
 ```
 
-The above example creates a data volume container named `httpd-data` from the
-`httpd` image. The systemd service for this is named `docker-httpd-data`.
+The above example creates a data volume container named "httpd-data" from the
+"httpd" image. The systemd service for this is named
+"docker-httpd-data.service".
+
+The following options are available for
+`docker_systemd::data_volume_container`:
+
+  * image: The name of the docker image to use.
 
 For more information about the data volume container pattern, see the
 official Docker documentation for
@@ -134,7 +152,8 @@ This module targets Red Hat Linux systems capable of running Docker:
 
 ## Development
 
-Issues and pull requests can be made at <https://github.com/ajsmith/puppet-docker_systemd>
+Issues and pull requests are welcome! Send those to:
+<https://github.com/ajsmith/puppet-docker_systemd>
 
 ## Release Notes
 
