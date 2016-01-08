@@ -157,6 +157,14 @@ Issues and pull requests are welcome! Send those to:
 
 ## Release Notes
 
+### v0.1.3
+
+- OS support info fixes.
+
+### v0.1.2
+
+- Metadata updates.
+
 ### v0.1.1
 
-Initial release.
+- Initial release.
