@@ -6,6 +6,7 @@
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with docker_systemd](#setup)
     * [What docker affects](#what-docker_systemd-affects)
+    * [Setup requirements](#setup-requirements)
     * [Beginning with docker_systemd](#beginning-with-docker_systemd)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
@@ -38,8 +39,16 @@ be stored using Docker's storage driver.
 If any Docker images are pulled as a result of running a Docker container,
 those images will be stored using Docker's storage driver.
 
-There's currently a gotcha where subsequent changes to systemd unit files may
-require a `systemctl daemon-reload` for those changes to take effect.
+This module **does not** install and Docker for you. There are plenty of ways
+to do that already.
+
+This module **does not** build Docker images. If you need to build images, the
+`puppetlabs/docker_platform` module does that just fine (mostly).
+
+### Setup Requirements
+
+This module requires Docker to be installed and running before any systemd
+container services are run.
 
 ## Usage
 
@@ -122,8 +131,6 @@ This module targets Red Hat Linux systems capable of running Docker:
 * RHEL 6.7+
 * CentOS 6.7+
 * Fedora 20+
-
-This module is not used to create Docker images. If you need to create images, the `puppetlabs/docker_platform` module does that just fine.
 
 ## Development
 
