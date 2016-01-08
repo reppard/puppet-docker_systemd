@@ -146,8 +146,8 @@ official Docker documentation for
 
 This module targets Red Hat Linux systems capable of running Docker:
 
-* RHEL 6.7+
-* CentOS 6.7+
+* RHEL 7
+* CentOS 7
 * Fedora 20+
 
 ## Development
