@@ -10,6 +10,12 @@ define docker_systemd::container (
   $entrypoint   = undef,
 ) {
 
+  if $image {
+    $image_arg = $image
+  } else {
+    $image_arg = $title
+  }
+
   $service_name = "docker-${title}.service"
   $docker_run_options = build_docker_run_options({
     link         => $link,

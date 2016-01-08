@@ -11,7 +11,7 @@ ExecStartPre=-/usr/bin/docker stop <%= @title %>
 ExecStartPre=-/usr/bin/docker rm <%= @title %>
 ExecStart=/usr/bin/docker run --rm \
     <%= @docker_run_options %> \
-    <%= @image %> <%= @command %>
+    <%= @image_arg %> <%= @command %>
 ExecStop=/usr/bin/docker stop <%= @title %>
 
 [Install]
