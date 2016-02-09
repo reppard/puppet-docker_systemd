@@ -2,17 +2,16 @@
 
 #### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with docker_systemd](#setup)
-    * [What docker_systemd affects](#what-docker_systemd-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with docker_systemd](#beginning-with-docker_systemd)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
-7. [Release Notes](#release-notes)
+ 1. [Overview](#overview)
+ 2. [Module Description - What the module does and why it is useful](#module-description)
+ 3. [Setup - The basics of getting started with docker_systemd](#setup)
+      * [What docker_systemd affects](#what-docker_systemd-affects)
+      * [Setup requirements](#setup-requirements)
+ 4. [Usage - Configuration options and additional functionality](#usage)
+ 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+ 6. [Limitations - OS compatibility, etc.](#limitations)
+ 7. [Development - Guide for contributing to the module](#development)
+ 8. [Release Notes](#release-notes)
 
 ## Overview
 
