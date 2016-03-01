@@ -54,7 +54,9 @@ EOF
         :volumes_from => ['httpd-data'],
         :link         => ['l1:l1', 'l2:l2'],
         :publish      => ['80:80/tcp'],
-        :entrypoint   => '/bin/bash'
+        :entrypoint   => '/bin/bash',
+        :env          => ['FOO=BAR', 'BAR=BAZ'],
+        :env_file     => ['/etc/foo.list', '/etc/bar.list'],
       }
     }
 
@@ -79,6 +81,8 @@ ExecStart=/usr/bin/docker run --rm \\
     --publish 80:80/tcp \\
     --volumes-from httpd-data \\
     --entrypoint /bin/bash \\
+    --env FOO=BAR --env BAR=BAZ \\
+    --env-file /etc/foo.list --env-file /etc/bar.list \\
     httpd -c "/bin/ls"
 ExecStop=/usr/bin/docker stop webserver
 
