@@ -8,6 +8,7 @@ define docker_systemd::container (
   $link         = undef,
   $publish      = undef,
   $entrypoint   = undef,
+  $env_file     = undef,
 ) {
 
   if $image {
@@ -23,6 +24,7 @@ define docker_systemd::container (
     publish      => $publish,
     volumes_from => $volumes_from,
     entrypoint   => $entrypoint,
+    env_file     => $env_file,
     })
 
   file { "/etc/systemd/system/${service_name}":
