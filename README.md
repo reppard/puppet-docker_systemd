@@ -83,15 +83,19 @@ The following options are available for `docker_systemd::container`:
   * command: Command and arguments to be run by the container.
 
   * depends: Dependencies on other systemd docker units which need to be
-    started before this one.
+    started before this one. (List)
 
-  * volumes_from: Containers which this container mounts volumes from.
+  * volumes_from: Containers which this container mounts volumes from. (List)
 
-  * link: Containers which this container links to.
+  * link: Containers which this container links to. (List)
 
-  * publish: Ports which should be published by this container.
+  * publish: Ports which should be published by this container. (List)
 
   * entrypoint: Run this container with a different entrypoint.
+
+  * env: Set environment variables in the container. (List)
+
+  * env_file: Use environment file in the container. (List)
 
 ### docker_systemd::exec
 
