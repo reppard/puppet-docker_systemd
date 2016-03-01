@@ -61,6 +61,8 @@ under systemd.
 docker_systemd::container { "httpd":
   image   => "httpd",
   publish => ["80:80/tcp"],
+  link    => ["db:db"],
+  volume  => ["/var/www/html:/var/www/html:ro"]
 }
 ```
 
@@ -84,6 +86,8 @@ The following options are available for `docker_systemd::container`:
 
   * depends: Dependencies on other systemd docker units which need to be
     started before this one. (List)
+
+  * volume: Volumes to be used by this container. (List)
 
   * volumes_from: Containers which this container mounts volumes from. (List)
 
@@ -159,6 +163,10 @@ Issues and pull requests are welcome! Send those to:
 <https://github.com/ajsmith/puppet-docker_systemd>
 
 ## Release Notes
+
+### v0.2.3
+
+- Add `--volume` option for containers.
 
 ### v0.2.2
 

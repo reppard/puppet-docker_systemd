@@ -51,6 +51,7 @@ EOF
         :image        => 'httpd',
         :command      => '-c "/bin/ls"',
         :depends      => ['dep1', 'dep2'],
+        :volume       => ['/appdata', '/shared:/shared:rw'],
         :volumes_from => ['httpd-data'],
         :link         => ['l1:l1', 'l2:l2'],
         :publish      => ['80:80/tcp'],
@@ -79,6 +80,7 @@ ExecStart=/usr/bin/docker run --rm \\
     --link l1:l1 --link l2:l2 \\
     --name webserver \\
     --publish 80:80/tcp \\
+    --volume /appdata --volume /shared:/shared:rw \\
     --volumes-from httpd-data \\
     --entrypoint /bin/bash \\
     --env FOO=BAR --env BAR=BAZ \\
