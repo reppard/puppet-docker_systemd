@@ -25,7 +25,7 @@ define docker_systemd::container (
     publish      => $publish,
     volumes_from => $volumes_from,
     entrypoint   => $entrypoint,
-    env          => $env_file,
+    env          => $env,
     env_file     => $env_file,
     })
 
