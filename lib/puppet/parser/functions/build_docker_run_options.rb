@@ -12,7 +12,7 @@ module Puppet::Parser::Functions
   @@processors = {
     :entrypoint => single_arg('entrypoint'),
     :env => separate_multi_arg('env'),
-    :env_file => single_arg('env-file'),
+    :env_file => separate_multi_arg('env-file'),
     :label => separate_multi_arg('label'),
     :label_file => single_arg('label-file'),
     :link => separate_multi_arg('link'),
