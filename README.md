@@ -60,7 +60,7 @@ under systemd.
 ```.puppet
 docker_systemd::container { "httpd":
   image   => "httpd",
-  publish => "80:80/tcp",
+  publish => ["80:80/tcp"],
 }
 ```
 
