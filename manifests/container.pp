@@ -8,6 +8,7 @@ define docker_systemd::container (
   $link         = undef,
   $publish      = undef,
   $entrypoint   = undef,
+  $env          = undef,
   $env_file     = undef,
 ) {
 
@@ -24,6 +25,7 @@ define docker_systemd::container (
     publish      => $publish,
     volumes_from => $volumes_from,
     entrypoint   => $entrypoint,
+    env          => $env_file,
     env_file     => $env_file,
     })
 
