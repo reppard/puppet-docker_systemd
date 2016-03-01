@@ -156,6 +156,10 @@ Issues and pull requests are welcome! Send those to:
 
 ## Release Notes
 
+### v0.2.2
+
+- Add `--env` and `--env-file` configuration options for containers.
+
 ### v0.2.1
 
 - Add Puppet version compatibility to metadata.
