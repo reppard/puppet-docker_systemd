@@ -39,7 +39,7 @@ be stored using Docker's storage driver.
 If any Docker images are pulled as a result of running a Docker container,
 those images will be stored using Docker's storage driver.
 
-This module **does not** install and Docker for you. Plenty of ways to install
+This module **does not** install Docker for you. Plenty of ways to install
 Docker already exist, so this module does not add yet another way to do it.
 
 This module **does not** build Docker images. If you need to build images, the
