@@ -13,11 +13,7 @@ define docker_systemd::container (
   $env_file     = undef,
 ) {
 
-  if $image {
-    $image_arg = $image
-  } else {
-    $image_arg = $title
-  }
+  $image_arg = $image ? { undef => $title, default => $image }
 
   $service_name = "docker-${title}.service"
   $docker_run_options = build_docker_run_options({
