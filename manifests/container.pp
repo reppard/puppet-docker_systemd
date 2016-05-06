@@ -32,11 +32,15 @@ define docker_systemd::container (
     content => template('docker_systemd/etc/systemd/system/run-container.service.erb'),
   }
 
+  file { "/etc/docker-${title}.env":
+    ensure  => present,
+    content => template('docker_systemd/etc/run-container.env.erb'),
+  }
+
   ~>
   service { $service_name:
     ensure   => $ensure,
     enable   => $enable,
     provider => systemd,
   }
-
 }
