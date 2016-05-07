@@ -6,6 +6,7 @@ define docker_systemd::container (
   $entrypoint   = undef,
   $env          = undef,
   $env_file     = undef,
+  $hostname     = undef,
   $image        = undef,
   $link         = undef,
   $publish      = undef,
@@ -25,6 +26,7 @@ define docker_systemd::container (
     entrypoint   => $entrypoint,
     env          => $env,
     env_file     => $env_file,
+    hostname     => $hostname,
   })
 
   file { "/etc/docker-${title}.env":
