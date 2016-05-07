@@ -25,19 +25,16 @@ define docker_systemd::container (
     entrypoint   => $entrypoint,
     env          => $env,
     env_file     => $env_file,
-    })
-
-  file { "/etc/systemd/system/${service_name}":
-    ensure  => present,
-    content => template('docker_systemd/etc/systemd/system/run-container.service.erb'),
-  }
+  })
 
   file { "/etc/docker-${title}.env":
     ensure  => present,
     content => template('docker_systemd/etc/run-container.env.erb'),
-  }
-
-  ~>
+  }->
+  file { "/etc/systemd/system/${service_name}":
+    ensure  => present,
+    content => template('docker_systemd/etc/systemd/system/run-container.service.erb'),
+  }~>
   service { $service_name:
     ensure   => $ensure,
     enable   => $enable,
