@@ -1,16 +1,16 @@
 define docker_systemd::container (
-  $ensure       = running,
-  $enable       = true,
-  $image        = undef,
   $command      = undef,
   $depends      = undef,
-  $volume       = undef,
-  $volumes_from = undef,
-  $link         = undef,
-  $publish      = undef,
+  $enable       = true,
+  $ensure       = running,
   $entrypoint   = undef,
   $env          = undef,
   $env_file     = undef,
+  $image        = undef,
+  $link         = undef,
+  $publish      = undef,
+  $volume       = undef,
+  $volumes_from = undef,
 ) {
 
   $image_arg = $image ? { undef => $title, default => $image }
