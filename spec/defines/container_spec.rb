@@ -65,6 +65,7 @@ EOF
         :volume       => ['/appdata', '/shared:/shared:rw'],
         :volumes_from => ['httpd-data'],
         :link         => ['l1:l1', 'l2:l2'],
+        :privileged   => 'true',
         :publish      => ['80:80/tcp'],
         :entrypoint   => '/bin/bash',
         :env          => ['FOO=BAR', 'BAR=BAZ'],
@@ -92,6 +93,7 @@ ExecStartPre=-/usr/bin/docker rm webserver
 ExecStart=/usr/bin/docker run --rm \\
     --link l1:l1 --link l2:l2 \\
     --name webserver \\
+    --privileged \\
     --publish 80:80/tcp \\
     --volume /appdata --volume /shared:/shared:rw \\
     --volumes-from httpd-data \\

@@ -9,6 +9,7 @@ define docker_systemd::container (
   $hostname     = undef,
   $image        = undef,
   $link         = undef,
+  $privileged   = undef,
   $publish      = undef,
   $volume       = undef,
   $volumes_from = undef,
@@ -20,6 +21,7 @@ define docker_systemd::container (
   $docker_run_options = build_docker_run_options({
     link         => $link,
     name         => $title,
+    privileged   => $privileged,
     publish      => $publish,
     volume       => $volume,
     volumes_from => $volumes_from,
