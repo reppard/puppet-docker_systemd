@@ -20,6 +20,7 @@ module Puppet::Parser::Functions
     :publish => separate_multi_arg('publish'),
     :volume => separate_multi_arg('volume'),
     :volumes_from => separate_multi_arg('volumes-from'),
+    :hostname => single_arg('hostname')
   }
 
   newfunction(

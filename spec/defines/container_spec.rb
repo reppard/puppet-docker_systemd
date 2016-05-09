@@ -69,6 +69,7 @@ EOF
         :entrypoint   => '/bin/bash',
         :env          => ['FOO=BAR', 'BAR=BAZ'],
         :env_file     => ['/etc/foo.list', '/etc/bar.list'],
+        :hostname     => 'webserver.local',
       }
     }
 
@@ -97,6 +98,7 @@ ExecStart=/usr/bin/docker run --rm \\
     --entrypoint /bin/bash \\
     --env FOO=BAR --env BAR=BAZ \\
     --env-file /etc/foo.list --env-file /etc/bar.list \\
+    --hostname webserver.local \\
     $IMAGE_ARG $COMMAND
 ExecStop=/usr/bin/docker stop webserver
 
