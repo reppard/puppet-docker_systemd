@@ -1,10 +1,12 @@
 define docker_systemd::data_volume_container (
-  $image = undef,
+  $image  = undef,
+  $volume = undef,
 ) {
 
   $service_name = "docker-${title}.service"
   $docker_run_options = build_docker_run_options({
     name       => $title,
+    volume     => $volume,
     entrypoint => '/bin/true',
     })
 

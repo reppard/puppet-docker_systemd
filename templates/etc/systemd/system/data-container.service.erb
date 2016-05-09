@@ -7,7 +7,7 @@ After=docker.service<% if @depends %><% @depends.each do |dep| %><%= " #{dep}.se
 Type=oneshot
 Restart=no
 RemainAfterExit=yes
-ExecStart=-/usr/bin/docker run \
+ExecStart=-/usr/bin/docker create \
     <%= @docker_run_options %> \
     <%= @image %>
 ExecStop=/usr/bin/docker stop <%= @title %>
