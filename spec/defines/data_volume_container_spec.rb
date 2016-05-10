@@ -5,8 +5,9 @@ describe 'docker_systemd::data_volume_container' do
     let(:title) { 'httpd-data' }
     let(:params) {
       {
-        :image  => 'httpd',
-        :volume => ['/var/data'],
+        :image   => 'httpd',
+        :volume  => ['/var/data'],
+        :depends => ['network.target'],
       }
     }
 
@@ -16,8 +17,8 @@ describe 'docker_systemd::data_volume_container' do
                     'content' => <<-EOF\
 [Unit]
 Description=Docker Data Container for httpd-data
-Requires=docker.service
-After=docker.service
+Requires=docker.service network.target
+After=docker.service network.target
 
 [Service]
 Type=oneshot

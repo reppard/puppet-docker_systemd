@@ -1,6 +1,7 @@
 define docker_systemd::data_volume_container (
-  $image  = undef,
-  $volume = undef,
+  $image   = undef,
+  $depends = undef,
+  $volume  = undef,
 ) {
 
   $service_name = "docker-${title}.service"
