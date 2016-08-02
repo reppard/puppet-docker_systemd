@@ -164,6 +164,10 @@ Issues and pull requests are welcome! Send those to:
 
 ## Release Notes
 
+### v0.3.0 (unreleased)
+
+- Automatically invoke 'systemctl daemon-reload' when unit files are updated.
+
 ### v0.2.3
 
 - Add `--volume` option for containers.
