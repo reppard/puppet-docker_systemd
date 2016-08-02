@@ -5,6 +5,10 @@ describe 'docker_systemd::container' do
     let(:title) { 'httpd' }
 
     it {
+      should contain_file(
+               '/etc/systemd/system/docker-httpd.service'
+             ).that_notifies('Exec[systemctl-daemon-reload]')
+
       should contain_file('/etc/systemd/system/docker-httpd.service').with(
                {
                  'ensure'  => 'present',

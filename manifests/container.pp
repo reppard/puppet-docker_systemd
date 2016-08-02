@@ -13,6 +13,8 @@ define docker_systemd::container (
   $env_file     = undef,
 ) {
 
+  include ::docker_systemd
+
   if $image {
     $image_arg = $image
   } else {
@@ -34,6 +36,7 @@ define docker_systemd::container (
   file { "/etc/systemd/system/${service_name}":
     ensure  => present,
     content => template('docker_systemd/etc/systemd/system/run-container.service.erb'),
+    notify  => Exec['systemctl-daemon-reload'],
   }
 
   ~>

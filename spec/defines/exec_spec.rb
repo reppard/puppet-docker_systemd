@@ -10,6 +10,10 @@ describe 'docker_systemd::exec' do
     }
 
     it {
+      should contain_file(
+               '/etc/systemd/system/docker-httpd-exec.service'
+             ).that_notifies('Exec[systemctl-daemon-reload]')
+
       should contain_file('/etc/systemd/system/docker-httpd-exec.service').with(
                {
                  'ensure'  => 'present',

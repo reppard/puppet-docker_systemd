@@ -10,12 +10,15 @@ define docker_systemd::exec (
   $container = $title,
 ) {
 
+  include ::docker_systemd
+
   $service_name = "docker-${title}-exec.service"
   $depends = "docker-${container}.service"
 
   file { "/etc/systemd/system/${service_name}":
     ensure  => present,
     content => template('docker_systemd/etc/systemd/system/exec-container.service.erb'),
+    notify  => Exec['systemctl-daemon-reload'],
   }
 
   ~>

@@ -9,7 +9,12 @@ describe 'docker_systemd::data_volume_container' do
       }
     }
 
-    it { should contain_file('/etc/systemd/system/docker-httpd-data.service').with(
+    it {
+      should contain_file(
+               '/etc/systemd/system/docker-httpd-data.service'
+             ).that_notifies('Exec[systemctl-daemon-reload]')
+
+      should contain_file('/etc/systemd/system/docker-httpd-data.service').with(
                   {
                     'ensure'  => 'present',
                     'content' => <<-EOF\
