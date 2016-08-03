@@ -25,7 +25,7 @@ After=docker.service docker-httpd.service
 
 [Service]
 Type=oneshot
-Restart=on-failure
+Restart=no
 RestartSec=5
 RemainAfterExit=yes
 ExecStart=/usr/bin/docker exec -i httpd /bin/touch /var/www/html/index.html
@@ -67,7 +67,7 @@ After=docker.service docker-httpd.service
 
 [Service]
 Type=oneshot
-Restart=on-failure
+Restart=no
 RestartSec=5
 RemainAfterExit=yes
 ExecStart=/usr/bin/docker exec -i httpd /bin/touch /var/www/html/about.html

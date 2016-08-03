@@ -5,7 +5,7 @@ After=docker.service <%= @depends %>
 
 [Service]
 Type=oneshot
-Restart=on-failure
+Restart=no
 RestartSec=5
 RemainAfterExit=yes
 ExecStart=/usr/bin/docker exec -i <%= @container %> <%= @command %>
