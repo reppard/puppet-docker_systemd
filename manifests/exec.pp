@@ -7,7 +7,8 @@
 #
 define docker_systemd::exec (
   $command,
-  $container = $title,
+  $container        = $title,
+  $systemd_env_file = undef,
 ) {
 
   include ::docker_systemd

@@ -5,9 +5,10 @@ After=docker.service <%= @depends %>
 
 [Service]
 Type=oneshot
-Restart=yes
+Restart=no
 RestartSec=5
 RemainAfterExit=yes
+<% if @systemd_env_file %><%= "EnvironmentFile=#{@systemd_env_file}" %><% end %>
 ExecStart=/usr/bin/docker exec -i <%= @container %> <%= @command %>
 
 [Install]
