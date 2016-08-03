@@ -63,6 +63,7 @@ EOF
         :entrypoint   => '/bin/bash',
         :env          => ['FOO=BAR', 'BAR=BAZ'],
         :env_file     => ['/etc/foo.list', '/etc/bar.list'],
+        :pull_image   => 'true',
       }
     }
 
@@ -81,7 +82,7 @@ Restart=always
 RestartSec=5
 ExecStartPre=-/usr/bin/docker stop webserver
 ExecStartPre=-/usr/bin/docker rm webserver
-
+ExecStartPre=/usr/bin/docker pull httpd
 ExecStart=/usr/bin/docker run --rm \\
     --link l1:l1 --link l2:l2 \\
     --name webserver \\

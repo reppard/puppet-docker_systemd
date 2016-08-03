@@ -5,7 +5,8 @@ describe 'docker_systemd::data_volume_container' do
     let(:title) { 'httpd-data' }
     let(:params) {
       {
-        :image => 'httpd'
+        :image      => 'httpd',
+        :pull_image => 'true',
       }
     }
 
@@ -27,7 +28,7 @@ After=docker.service
 Type=oneshot
 Restart=no
 RemainAfterExit=yes
-
+ExecStartPre=/usr/bin/docker pull httpd
 ExecStart=-/usr/bin/docker run \\
     --name httpd-data \\
     --entrypoint /bin/true \\
