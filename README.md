@@ -101,6 +101,8 @@ The following options are available for `docker_systemd::container`:
 
   * env_file: Use environment file in the container. (List)
 
+  * `pull_image`: Always pull image before starting the container. (Default `false`)
+
 ### docker_systemd::exec
 
 `docker_systemd::exec` allows a `docker exec` command to be invoked within a
