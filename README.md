@@ -148,7 +148,12 @@ The above example creates a data volume container named "httpd-data" from the
 The following options are available for
 `docker_systemd::data_volume_container`:
 
-  * image: The name of the docker image to use.
+  * `image`: The name of the docker image to use.
+
+  * `pull_image`: Always pull image before starting the container. (Default
+    `false`)
+
+  * `systemd_env_file`: Path to a systemd environment file to use.
 
 For more information about the data volume container pattern, see the
 official Docker documentation for
