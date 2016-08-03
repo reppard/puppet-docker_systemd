@@ -25,7 +25,7 @@ After=docker.service docker-httpd.service
 
 [Service]
 Type=oneshot
-Restart=on-failure
+Restart=no
 RestartSec=5
 RemainAfterExit=yes
 
@@ -69,7 +69,7 @@ After=docker.service docker-httpd.service
 
 [Service]
 Type=oneshot
-Restart=on-failure
+Restart=no
 RestartSec=5
 RemainAfterExit=yes
 EnvironmentFile=/etc/sysconfig/docker-httpd_touch-exec.env
