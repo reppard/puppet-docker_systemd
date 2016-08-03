@@ -167,6 +167,7 @@ Issues and pull requests are welcome! Send those to:
 ### v0.3.0 (unreleased)
 
 - Automatically invoke 'systemctl daemon-reload' when unit files are updated.
+- Add support for systemd environment files.
 
 ### v0.2.3
 
