@@ -8,6 +8,7 @@ Type=oneshot
 Restart=yes
 RestartSec=5
 RemainAfterExit=yes
+<% if @systemd_env_file %><%= "EnvironmentFile=#{systemd_env_file}" %><% end %>
 ExecStart=/usr/bin/docker exec -i <%= @container %> <%= @command %>
 
 [Install]

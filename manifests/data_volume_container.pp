@@ -1,5 +1,6 @@
 define docker_systemd::data_volume_container (
-  $image = undef,
+  $image            = undef,
+  $systemd_env_file = undef,
 ) {
 
   include ::docker_systemd

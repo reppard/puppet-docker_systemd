@@ -22,6 +22,7 @@ After=docker.service
 Type=simple
 Restart=always
 RestartSec=5
+
 ExecStartPre=-/usr/bin/docker stop httpd
 ExecStartPre=-/usr/bin/docker rm httpd
 ExecStart=/usr/bin/docker run --rm \\
@@ -50,18 +51,19 @@ EOF
     let(:title) { 'webserver' }
     let(:params) {
       {
-        :ensure       => 'stopped',
-        :enable       => 'false',
-        :image        => 'httpd',
-        :command      => '-c "/bin/ls"',
-        :depends      => ['dep1', 'dep2'],
-        :volume       => ['/appdata', '/shared:/shared:rw'],
-        :volumes_from => ['httpd-data'],
-        :link         => ['l1:l1', 'l2:l2'],
-        :publish      => ['80:80/tcp'],
-        :entrypoint   => '/bin/bash',
-        :env          => ['FOO=BAR', 'BAR=BAZ'],
-        :env_file     => ['/etc/foo.list', '/etc/bar.list'],
+        :ensure           => 'stopped',
+        :enable           => 'false',
+        :image            => '$IMAGE',
+        :command          => '-c $USER_OPTS "/bin/ls"',
+        :depends          => ['dep1', 'dep2'],
+        :volume           => ['/appdata', '/shared:/shared:rw'],
+        :volumes_from     => ['httpd-data'],
+        :link             => ['l1:l1', 'l2:l2'],
+        :publish          => ['80:80/tcp'],
+        :entrypoint       => '/bin/bash',
+        :env              => ['FOO=BAR', 'BAR=BAZ'],
+        :env_file         => ['/etc/foo.list', '/etc/bar.list'],
+        :systemd_env_file => '/etc/sysconfig/docker-httpd.env',
       }
     }
 
@@ -78,6 +80,7 @@ After=docker.service docker-dep1.service docker-dep2.service
 Type=simple
 Restart=always
 RestartSec=5
+EnvironmentFile=/etc/sysconfig/docker-httpd.env
 ExecStartPre=-/usr/bin/docker stop webserver
 ExecStartPre=-/usr/bin/docker rm webserver
 ExecStart=/usr/bin/docker run --rm \\
@@ -89,7 +92,7 @@ ExecStart=/usr/bin/docker run --rm \\
     --entrypoint /bin/bash \\
     --env FOO=BAR --env BAR=BAZ \\
     --env-file /etc/foo.list --env-file /etc/bar.list \\
-    httpd -c "/bin/ls"
+    $IMAGE -c $USER_OPTS "/bin/ls"
 ExecStop=/usr/bin/docker stop webserver
 
 [Install]

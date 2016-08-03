@@ -28,6 +28,7 @@ Type=oneshot
 Restart=yes
 RestartSec=5
 RemainAfterExit=yes
+
 ExecStart=/usr/bin/docker exec -i httpd /bin/touch /var/www/html/index.html
 
 [Install]
@@ -51,8 +52,9 @@ EOF
     let(:title) { 'httpd_touch' }
     let(:params) {
       {
-        :command   => '/bin/touch /var/www/html/about.html',
-        :container => 'httpd'
+        :command          => '/bin/touch $USER_OPTS /var/www/html/about.html',
+        :container        => 'httpd',
+        :systemd_env_file => '/etc/sysconfig/docker-httpd_touch-exec.env',
       }
     }
 
@@ -70,7 +72,8 @@ Type=oneshot
 Restart=yes
 RestartSec=5
 RemainAfterExit=yes
-ExecStart=/usr/bin/docker exec -i httpd /bin/touch /var/www/html/about.html
+EnvironmentFile=/etc/sysconfig/docker-httpd_touch-exec.env
+ExecStart=/usr/bin/docker exec -i httpd /bin/touch $USER_OPTS /var/www/html/about.html
 
 [Install]
 WantedBy=multi-user.target
