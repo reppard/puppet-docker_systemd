@@ -5,7 +5,7 @@ After=docker.service <%= @depends %>
 
 [Service]
 Type=oneshot
-Restart=yes
+Restart=on-failure
 RestartSec=5
 RemainAfterExit=yes
 <% if @systemd_env_file %><%= "EnvironmentFile=#{systemd_env_file}" %><% end %>
