@@ -74,32 +74,34 @@ and is named "docker-httpd.service".
 
 The following options are available for `docker_systemd::container`:
 
-  * ensure: Takes any `ensure` value accepted by the `Service` resource type
+  * `ensure`: Takes any `ensure` value accepted by the `Service` resource type
     (Default `running`).
 
-  * enable: Takes any `enable` value accepted by the `Service` resource type
+  * `enable`: Takes any `enable` value accepted by the `Service` resource type
     (Default `true`).
 
-  * image: The name of the docker image to use.
+  * `image`: The name of the docker image to use.
 
-  * command: Command and arguments to be run by the container.
+  * `command`: Command and arguments to be run by the container.
 
-  * depends: Dependencies on other systemd docker units which need to be
+  * `depends`: Dependencies on other systemd docker units which need to be
     started before this one. (List)
 
-  * volume: Volumes to be used by this container. (List)
+  * `volume`: Volumes to be used by this container. (List)
 
-  * volumes_from: Containers which this container mounts volumes from. (List)
+  * `volumes_from`: Containers which this container mounts volumes from. (List)
 
-  * link: Containers which this container links to. (List)
+  * `link`: Containers which this container links to. (List)
 
-  * publish: Ports which should be published by this container. (List)
+  * `publish`: Ports which should be published by this container. (List)
 
-  * entrypoint: Run this container with a different entrypoint.
+  * `entrypoint`: Run this container with a different entrypoint.
 
-  * env: Set environment variables in the container. (List)
+  * `env`: Set environment variables in the container. (List)
 
-  * env_file: Use environment file in the container. (List)
+  * `env_file`: Use environment file in the container. (List)
+
+  * `systemd_env_file`: Path to a systemd environment file to use.
 
 ### docker_systemd::exec
 
