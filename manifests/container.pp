@@ -11,6 +11,7 @@ define docker_systemd::container (
   $entrypoint   = undef,
   $env          = undef,
   $env_file     = undef,
+  $pull_image   = false,
 ) {
 
   include ::docker_systemd

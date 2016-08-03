@@ -9,6 +9,7 @@ Restart=always
 RestartSec=5
 ExecStartPre=-/usr/bin/docker stop <%= @title %>
 ExecStartPre=-/usr/bin/docker rm <%= @title %>
+<% if @pull_image %>ExecStartPre=/usr/bin/docker pull <%= @image_arg %><% end %>
 ExecStart=/usr/bin/docker run --rm \
     <%= @docker_run_options %> \
     <%= @image_arg %> <%= @command %>
