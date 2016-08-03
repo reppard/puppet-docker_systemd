@@ -174,6 +174,10 @@ Issues and pull requests are welcome! Send those to:
 
 ## Release Notes
 
+### v0.3.1
+
+- Documentation updates.
+
 ### v0.3.0
 
 - Automatically invoke 'systemctl daemon-reload' when unit files are updated.
