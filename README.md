@@ -173,6 +173,7 @@ Issues and pull requests are welcome! Send those to:
 
 - Automatically invoke 'systemctl daemon-reload' when unit files are updated.
 - Add support for systemd environment files.
+- Add option to always pull image before running containers.
 
 ### v0.2.3
 
