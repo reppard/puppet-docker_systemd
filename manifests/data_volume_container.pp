@@ -3,7 +3,7 @@ define docker_systemd::data_volume_container (
   $pull_image       = false,
   $systemd_env_file = undef,
   $volume           = undef,
-  $depends          = undef,
+  $systemd_depends  = undef,
 ) {
 
   include ::docker_systemd

@@ -8,7 +8,7 @@ describe 'docker_systemd::data_volume_container' do
       {
         :image   => 'httpd',
         :volume  => ['/var/data'],
-        :depends => ['network.target'],
+        :systemd_depends => ['network.target'],
       }
     }
 

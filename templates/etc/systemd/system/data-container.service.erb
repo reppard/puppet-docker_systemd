@@ -1,7 +1,7 @@
 [Unit]
 Description=Docker Data Container for <%= @title %>
-Requires=docker.service<% if @depends %><% @depends.each do |dep| %><%= " #{dep}" %><% end %><% end %>
-After=docker.service<% if @depends %><% @depends.each do |dep| %><%= " #{dep}" %><% end %><% end %>
+Requires=docker.service<% if @systemd_depends %><% @systemd_depends.each do |dep| %><%= " #{dep}" %><% end %><% end %>
+After=docker.service<% if @systemd_depends %><% @systemd_depends.each do |dep| %><%= " #{dep}" %><% end %><% end %>
 
 [Service]
 Type=oneshot
