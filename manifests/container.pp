@@ -13,6 +13,7 @@ define docker_systemd::container (
   $env              = undef,
   $env_file         = undef,
   $systemd_env_file = undef,
+  $hostname         = undef,
 ) {
 
   include ::docker_systemd
@@ -33,7 +34,8 @@ define docker_systemd::container (
     entrypoint   => $entrypoint,
     env          => $env,
     env_file     => $env_file,
-    })
+    hostname     => $hostname,
+  })
 
   file { "/etc/systemd/system/${service_name}":
     ensure  => present,

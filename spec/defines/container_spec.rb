@@ -66,6 +66,7 @@ EOF
         :env              => ['FOO=BAR', 'BAR=BAZ'],
         :env_file         => ['/etc/foo.list', '/etc/bar.list'],
         :systemd_env_file => '/etc/sysconfig/docker-httpd.env',
+        :hostname     => 'webserver.local',
       }
     }
 
@@ -95,6 +96,7 @@ ExecStart=/usr/bin/docker run --rm \\
     --entrypoint /bin/bash \\
     --env FOO=BAR --env BAR=BAZ \\
     --env-file /etc/foo.list --env-file /etc/bar.list \\
+    --hostname webserver.local \\
     $IMAGE -c $USER_OPTS "/bin/ls"
 ExecStop=/usr/bin/docker stop webserver
 
