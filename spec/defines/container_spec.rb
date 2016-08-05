@@ -66,7 +66,8 @@ EOF
         :env              => ['FOO=BAR', 'BAR=BAZ'],
         :env_file         => ['/etc/foo.list', '/etc/bar.list'],
         :systemd_env_file => '/etc/sysconfig/docker-httpd.env',
-        :hostname     => 'webserver.local',
+        :privileged       => 'true',
+        :hostname         => 'webserver.local',
       }
     }
 
@@ -90,6 +91,7 @@ ExecStartPre=/usr/bin/docker pull $IMAGE
 ExecStart=/usr/bin/docker run --rm \\
     --link l1:l1 --link l2:l2 \\
     --name webserver \\
+    --privileged \\
     --publish 80:80/tcp \\
     --volume /appdata --volume /shared:/shared:rw \\
     --volumes-from httpd-data \\

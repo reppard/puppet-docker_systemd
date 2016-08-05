@@ -14,6 +14,7 @@ define docker_systemd::container (
   $env_file         = undef,
   $systemd_env_file = undef,
   $hostname         = undef,
+  $privileged       = undef,
 ) {
 
   include ::docker_systemd
@@ -28,6 +29,7 @@ define docker_systemd::container (
   $docker_run_options = build_docker_run_options({
     link         => $link,
     name         => $title,
+    privileged   => $privileged,
     publish      => $publish,
     volume       => $volume,
     volumes_from => $volumes_from,
